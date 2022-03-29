@@ -2,7 +2,8 @@ const key = "9estwCtFpErxDm1o6Kzn64K4yysJyOMs";
 
 async function getCity(city) {
   try {
-    const url = "http://dataservice.accuweather.com/locations/v1/cities/search";
+    const url =
+      "https://dataservice.accuweather.com/locations/v1/cities/search";
     const query = `?apikey=${key}&q=${city}`;
 
     const resp = await fetch(url + query);
@@ -16,7 +17,7 @@ async function getCity(city) {
 
 async function getCurrentCondition(cityKey) {
   try {
-    const url = `http://dataservice.accuweather.com/currentconditions/v1/${cityKey}`;
+    const url = `https://dataservice.accuweather.com/currentconditions/v1/${cityKey}`;
     const query = `?apikey=${key}`;
     const resp = await fetch(url + query);
     const data = await resp.json();
@@ -29,7 +30,7 @@ async function getCurrentCondition(cityKey) {
 
 async function getFiveForecasts(cityKey) {
   try {
-    const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}`;
+    const url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}`;
     const query = `?apikey=${key}&metric=true`;
     const resp = await fetch(url + query);
     const data = await resp.json();
@@ -43,7 +44,7 @@ async function getFiveForecasts(cityKey) {
 async function getAutoCompApi(cityInput) {
   try {
     const url =
-      "http://dataservice.accuweather.com/locations/v1/cities/autocomplete";
+      "https://dataservice.accuweather.com/locations/v1/cities/autocomplete";
     const query = `?apikey=${key}&q=${cityInput}`;
     const resp = await fetch(url + query);
     const data = await resp.json();
@@ -59,7 +60,7 @@ async function getCurrentLocationGeo(lat, lon) {
     //console.log(currPos);
 
     const url =
-      "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
+      "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
     const query = `?apikey=${key}&q=${currPos}`;
     const resp = await fetch(url + query);
     const data = await resp.json();
